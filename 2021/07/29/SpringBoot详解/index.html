@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      437 字
+      815 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      10
        分钟
     </span>
   
@@ -252,10 +252,76 @@
 <li>使用IDEA创建<blockquote>
 <p>IDEA引用了官网的工具，使其创建更加方便，但本质上并没有什么不同</p>
 </blockquote>
+<h4 id="2、配置文件分类"><a href="#2、配置文件分类" class="headerlink" title="2、配置文件分类"></a>2、配置文件分类</h4></li>
+<li>自行配置<blockquote>
+<p>application.properties或者application.yml（application.yaml）</p>
+</blockquote>
+</li>
+<li>优先级<ul>
+<li>application.propertie</li>
+<li>application.yml</li>
+<li>application.yaml</li>
+</ul>
+</li>
+<li>内部配置加载顺序<br>启动后，加载目录以及加载顺序<ul>
+<li>file:./config/     当前项目下的/config目录下</li>
+<li>file:./            当前项目的根目录</li>
+<li>classpath:/config/ classpath的/config目录</li>
+<li>classpath:/        classpath的根目录</li>
+</ul>
 </li>
 </ol>
-<h3 id="SpringBoot整合Mybatis"><a href="#SpringBoot整合Mybatis" class="headerlink" title="SpringBoot整合Mybatis"></a>SpringBoot整合Mybatis</h3><p>在创建项目时勾选SQL-&gt;MyBatis Framework以及MySQL Driver</p>
-<p>Mybatis提供了相对于SpringBoot的起步依赖</p>
+<hr>
+<h3 id="三、Yaml"><a href="#三、Yaml" class="headerlink" title="三、Yaml"></a>三、Yaml</h3><h4 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h4><ul>
+<li>大小写敏感</li>
+<li>数据值前必须有空格作为分隔符</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进时必须使用空格</li>
+<li>缩进的空格数目不重要，只要向同级的元素左侧对齐即可</li>
+<li>#表示注释<h4 id="2、数据格式"><a href="#2、数据格式" class="headerlink" title="2、数据格式"></a>2、数据格式</h4></li>
+</ul>
+<ol>
+<li>对象(map)：键值对的集合<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8081</span><br><span class="hljs-comment"># 行内写法</span><br><span class="hljs-attr">server:</span> &#123;<span class="hljs-attr">value:</span> <span class="hljs-number">8081</span>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>数组：一组按次序排列的值<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">address:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">beijing</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">shanghai</span><br><span class="hljs-attr">address:</span> [<span class="hljs-string">beijing</span>,<span class="hljs-string">shanghai</span>]<br></code></pre></td></tr></table></figure></li>
+<li>纯量：单个的、不可再分的值<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">msg1:</span> <span class="hljs-string">&#x27;hello \n world&#x27;</span> <span class="hljs-comment"># 单引忽略转义字符</span><br><span class="hljs-attr">msg2:</span> <span class="hljs-string">&quot;hello \n world&quot;</span> <span class="hljs-comment"># 双引识别转义字符</span><br></code></pre></td></tr></table></figure>
+<h4 id="3、参数引用"><a href="#3、参数引用" class="headerlink" title="3、参数引用"></a>3、参数引用</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">zhangsan</span><br><span class="hljs-attr">person:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">$&#123;name&#125;</span>  <span class="hljs-comment"># 引用上面的name</span><br>  <span class="hljs-attr">age:</span> <span class="hljs-number">20</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h3 id="四、读取配置文件内容"><a href="#四、读取配置文件内容" class="headerlink" title="四、读取配置文件内容"></a>四、读取配置文件内容</h3><ol>
+<li>@Value<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Value(&quot;$&#123;name&#125;&quot;)</span><br><span class="hljs-meta">@Value(&quot;$&#123;person.age&#125;&quot;)</span><br><span class="hljs-meta">@Value(&quot;$&#123;location[0]&#125;&quot;)</span><br></code></pre></td></tr></table></figure></li>
+<li>Environment类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> Environment env;<br>env.getProperty(<span class="hljs-string">&quot;person.age&quot;</span>);<br></code></pre></td></tr></table></figure></li>
+<li>@ConfigurationProperties<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h3 id="五、profile"><a href="#五、profile" class="headerlink" title="五、profile"></a>五、profile</h3><h4 id="1-配置方式"><a href="#1-配置方式" class="headerlink" title="1.配置方式"></a>1.配置方式</h4><ol>
+<li>多profile文件方式<ul>
+<li>application.properties<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">spring.profiles.active=pro <span class="hljs-comment">//激活</span><br></code></pre></td></tr></table></figure></li>
+<li>application-dev.properties</li>
+<li>application-pro.properties</li>
+<li>application-test.properties</li>
+</ul>
+</li>
+<li>yml多文档方式<ul>
+<li>用<code>---</code>来分隔</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-激活方式"><a href="#2-激活方式" class="headerlink" title="2.激活方式"></a>2.激活方式</h4><ol>
+<li>配置文件<blockquote>
+<p>spring.profiles.active=pro</p>
+</blockquote>
+</li>
+<li>虚拟机参数<blockquote>
+<p>-Dspring.profiles.active=test</p>
+</blockquote>
+</li>
+<li>命令行参数<blockquote>
+<p>–spring.profiles.active=test</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h3 id="六、SpringBoot整合"><a href="#六、SpringBoot整合" class="headerlink" title="六、SpringBoot整合"></a>六、SpringBoot整合</h3><h4 id="1-整合Mybatis"><a href="#1-整合Mybatis" class="headerlink" title="1.整合Mybatis"></a>1.整合Mybatis</h4><p>在创建项目时勾选SQL-&gt;MyBatis Framework以及MySQL Driver<br>Mybatis提供了相对于SpringBoot的起步依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>mysql驱动依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>runtime<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span> <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
