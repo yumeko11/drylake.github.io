@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      390 字
+      437 字
     </span>
   
 
@@ -241,11 +241,19 @@
 <p><em>注：SpringBoot并不是对Spring功能上的增强 而是提供了一种快速使用Spring的方式。并且SpringBoot遵循约定大于配置原则</em></p>
 <hr>
 <h3 id="二、SpringBoot搭建"><a href="#二、SpringBoot搭建" class="headerlink" title="二、SpringBoot搭建"></a>二、SpringBoot搭建</h3><h4 id="1、创建SpringBoot的方式"><a href="#1、创建SpringBoot的方式" class="headerlink" title="1、创建SpringBoot的方式"></a>1、创建SpringBoot的方式</h4><ol>
-<li>使用官网提供的工具创建</li>
-</ol>
-<blockquote>
+<li>使用官网提供的工具创建<blockquote>
 <p><a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a></p>
 </blockquote>
+</li>
+<li>使用阿里云脚手架创建<blockquote>
+<p><a target="_blank" rel="noopener" href="https://start.aliyun.com/">https://start.aliyun.com</a></p>
+</blockquote>
+</li>
+<li>使用IDEA创建<blockquote>
+<p>IDEA引用了官网的工具创建，使其更加方便，但本质上并没有什么不同</p>
+</blockquote>
+</li>
+</ol>
 <h3 id="SpringBoot整合Mybatis"><a href="#SpringBoot整合Mybatis" class="headerlink" title="SpringBoot整合Mybatis"></a>SpringBoot整合Mybatis</h3><p>在创建项目时勾选SQL-&gt;MyBatis Framework以及MySQL Driver</p>
 <p>Mybatis提供了相对于SpringBoot的起步依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
