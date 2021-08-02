@@ -18,7 +18,7 @@
   <meta name="author" content="yumeko11">
   <meta name="keywords" content="">
   
-  <title>JavaWeb详解 - yumeko&#39; home</title>
+  <title>搭建属于自己的hexo+github博客 - yumeko&#39; home</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="JavaWeb详解">
+            <span class="h2" id="subtitle" title="搭建属于自己的hexo+github博客">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-30 20:40" pubdate>
-        2021年7月30日 晚上
+      <time datetime="2021-08-02 08:23" pubdate>
+        2021年8月2日 早上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      490 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -225,10 +225,88 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JavaWeb详解</h1>
+            <h1 style="display: none">搭建属于自己的hexo+github博客</h1>
             
             <div class="markdown-body">
-              
+              <h4 id="1、下载node-js"><a href="#1、下载node-js" class="headerlink" title="1、下载node.js"></a>1、下载node.js</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a><br><em>命令行输入<code>node -v</code>以及<code>npm -v</code>显示版本信息则安装成功</em></p>
+</blockquote>
+<h4 id="2、github注册"><a href="#2、github注册" class="headerlink" title="2、github注册"></a>2、github注册</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a></p>
+</blockquote>
+<ol>
+<li>注册账户(用户名、邮箱、密码)<blockquote>
+<p><em>注册后需要验证邮箱</em></p>
+</blockquote>
+</li>
+<li>创建仓库(Create a new repository)<blockquote>
+<p>仓库名称必须为<code>用户名.github.io</code></p>
+</blockquote>
+</li>
+</ol>
+<h4 id="3、安装git"><a href="#3、安装git" class="headerlink" title="3、安装git"></a>3、安装git</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a><br><em>命令行输入<code>git</code>显示信息则安装成功</em></p>
+</blockquote>
+<h4 id="4、githubSHH配置"><a href="#4、githubSHH配置" class="headerlink" title="4、githubSHH配置"></a>4、githubSHH配置</h4><ol>
+<li>鼠标右键点击Git Bush Here打开git命令框</li>
+<li>输入<code>ssh-keygen -t rsa -C &quot;your e-mail&quot;</code>之后直接回车产生公钥<blockquote>
+<p><em>公钥产生在<code>C:\Users\Administrator\.ssh</code>后缀为.pub</em></p>
+</blockquote>
+</li>
+<li>打开你的github<blockquote>
+<p>settings</p>
+<blockquote>
+<p>SSH and GPG keys</p>
+<blockquote>
+<p>将公钥复制到key中</p>
+<blockquote>
+<p>Add SSH key</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<h4 id="5、hexo本地使用"><a href="#5、hexo本地使用" class="headerlink" title="5、hexo本地使用"></a>5、hexo本地使用</h4><ol>
+<li>新建文件夹名为<code>blog</code></li>
+<li>打开命令行<ul>
+<li>cd blog</li>
+<li>npm install hexo-cli -g</li>
+<li>hexo init myBlog</li>
+<li>cd myBlog</li>
+<li>npm install</li>
+<li>hexo s -p 5555</li>
+</ul>
+</li>
+<li>在浏览器输入<code>localhost:5555</code> 此时你的博客就已经搭建好了</li>
+</ol>
+<h4 id="6、安装sublime"><a href="#6、安装sublime" class="headerlink" title="6、安装sublime"></a>6、安装sublime</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.sublimetext.com/download">http://www.sublimetext.com/download</a><br><em>安装成功后将myBlog文件夹复制到sublime</em><br>此时需要在_config.yml文件中修改几处</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment">#URL</span><br><span class="hljs-attr">url:</span> <span class="hljs-string">https://githubName.github.io</span><br><br><span class="hljs-comment"># Deployment</span><br><span class="hljs-attr">deploy:</span> <br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/githubName/githubName.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="7、hexo发布至github"><a href="#7、hexo发布至github" class="headerlink" title="7、hexo发布至github"></a>7、hexo发布至github</h4><p>打开命令行</p>
+<ul>
+<li>npm install hexo-deployer-git –save</li>
+<li>git config –global user.name “your name”</li>
+<li>git config –global user.email “your email”</li>
+<li>hexo g</li>
+<li>hexo d<br>此时你已经将hexo发布至github 在浏览器访问<code>https://githubName.github.io</code>即可查看你的博客</li>
+</ul>
+<h4 id="8、hexo主题使用"><a href="#8、hexo主题使用" class="headerlink" title="8、hexo主题使用"></a>8、hexo主题使用</h4><p><em>hexo官网收录有300多种主题,在hexo主页挑选你想要的主题,之后将您心仪的主题下载到本地(需要在github中pull代码)</em><br>以Fluid主题为例</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/releases/tag/v1.8.11">https://github.com/fluid-dev/hexo-theme-fluid/releases/tag/v1.8.11</a><br><em>此为下载zip文件方式,git pull方式请自行查看git使用</em></p>
+</blockquote>
+<ol>
+<li>下载到本地解压将文件名改为fluid后 放入myBlog下的themes文件夹中</li>
+<li>修改_config.yml<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Extensions</span><br><span class="hljs-attr">theme:</span> <span class="hljs-string">fluid</span><br></code></pre></td></tr></table></figure></li>
+<li>此时再通过命令行</li>
+</ol>
+<ul>
+<li>hexo g</li>
+<li>hexo d<br>即可访问属于您心仪主题的博客</li>
+</ul>
+
             </div>
             <hr>
             <div>
@@ -248,18 +326,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/02/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84hexo+github%E5%8D%9A%E5%AE%A2/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">搭建属于自己的hexo+github博客</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/07/30/SpringMVC%E8%AF%A6%E8%A7%A3/">
-                        <span class="hidden-mobile">SpringMVC详解</span>
+                      <a href="/2021/07/30/JavaWeb%E8%AF%A6%E8%A7%A3/">
+                        <span class="hidden-mobile">JavaWeb详解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
