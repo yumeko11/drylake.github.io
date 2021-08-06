@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2.4k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      28
+      35
        分钟
     </span>
   
@@ -383,7 +383,150 @@
 <td>append k1 hi</td>
 </tr>
 </tbody></table>
-<h4 id="1、Hash-哈希"><a href="#1、Hash-哈希" class="headerlink" title="1、Hash(哈希)"></a>1、Hash(哈希)</h4><h4 id="1、List-列表"><a href="#1、List-列表" class="headerlink" title="1、List(列表)"></a>1、List(列表)</h4><h4 id="1、Set-集合"><a href="#1、Set-集合" class="headerlink" title="1、Set(集合)"></a>1、Set(集合)</h4><h4 id="1、zset-sorted-set-有序集合"><a href="#1、zset-sorted-set-有序集合" class="headerlink" title="1、zset(sorted set:有序集合)"></a>1、zset(sorted set:有序集合)</h4><h4 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h4><ul>
+<h4 id="2、Hash-哈希"><a href="#2、Hash-哈希" class="headerlink" title="2、Hash(哈希)"></a>2、Hash(哈希)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hdel key field1 field2…</td>
+<td>删除一个或多个哈希表字段</td>
+<td>hdel k1 f1 f2</td>
+</tr>
+<tr>
+<td>hexists key field</td>
+<td>查看哈希表key中,指定的字段是否存在</td>
+<td>hexists k1 f1</td>
+</tr>
+<tr>
+<td>hget key field</td>
+<td>获取存储在哈希表中指定字段的值</td>
+<td>hget k1 f1</td>
+</tr>
+<tr>
+<td>hgetall key</td>
+<td>获取在哈希表中指定key的所有字段和值</td>
+<td>hgetall k1</td>
+</tr>
+<tr>
+<td>hincrby key field increment</td>
+<td>为哈希表key中的指定字段的整数值加上增量increment</td>
+<td>hincrby k1 f1 10</td>
+</tr>
+<tr>
+<td>hkeys key</td>
+<td>获取所有哈希表中的字段</td>
+<td>hkeys k1</td>
+</tr>
+<tr>
+<td>hlen key</td>
+<td>获取哈希表中字段的数量</td>
+<td>hlen k1</td>
+</tr>
+<tr>
+<td>hmget key field1 field2…</td>
+<td>获取所有给定字段的值</td>
+<td>hmget k1 f1 f2</td>
+</tr>
+<tr>
+<td>hmset key field1 value1 field2 value2…</td>
+<td>同时将多个field-value(域-值)对设置到哈希表key中</td>
+<td>hmset k1 f1 v1 f2 v2</td>
+</tr>
+<tr>
+<td>hset key field value</td>
+<td>将哈希表key中的字段field的值设为value</td>
+<td>hset k1 f1 v1</td>
+</tr>
+<tr>
+<td>hsetnx key field value</td>
+<td>只有在字段field不存在时,设置哈希表字段的值</td>
+<td>hsetnx k1 f1 v1</td>
+</tr>
+<tr>
+<td>hvals key</td>
+<td>获取哈希表中所有值</td>
+<td>hvals k1</td>
+</tr>
+</tbody></table>
+<h4 id="3、List-列表"><a href="#3、List-列表" class="headerlink" title="3、List(列表)"></a>3、List(列表)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lindex key index</td>
+<td>通过索引获取列表中的元素</td>
+<td>lindex k1 0</td>
+</tr>
+<tr>
+<td>linsert key before/after pivot value</td>
+<td>在列表的元素前或者后插入元素</td>
+<td>linsert k1 before/after hi1 hi</td>
+</tr>
+<tr>
+<td>llen key</td>
+<td>获取列表长度</td>
+<td>llen k1</td>
+</tr>
+<tr>
+<td>lpop key</td>
+<td>移出并获取列表的第一个元素</td>
+<td>lpop k1</td>
+</tr>
+<tr>
+<td>lpush key value1 value2…</td>
+<td>将一个或多个值插入到列表头部</td>
+<td>lpush k1 v1 v2</td>
+</tr>
+<tr>
+<td>lpushx key value</td>
+<td>将一个值插入到已存在的列表头部</td>
+<td>lpushx k1 v1</td>
+</tr>
+<tr>
+<td>lrange key start stop</td>
+<td>获取列表指定范围内的元素</td>
+<td>lrange k1 0 -1</td>
+</tr>
+<tr>
+<td>lrem key count value</td>
+<td>移除列表元素</td>
+<td>lrem k1 -2 value</td>
+</tr>
+<tr>
+<td>lset key index value</td>
+<td>通过索引设置列表元素的值</td>
+<td>lset k1 3 value</td>
+</tr>
+<tr>
+<td>ltrim key start stop</td>
+<td>对一个列表进行修剪,让列表只保留指定区间内的元素</td>
+<td>ltrim k1 2 4</td>
+</tr>
+<tr>
+<td>rpop key</td>
+<td>移除列表的最后一个元素,返回值为移除的元素</td>
+<td>rpop k1</td>
+</tr>
+<tr>
+<td>rpush key value1 value2…</td>
+<td>在列表中添加一个或多个值</td>
+<td>rpush k1 v1 v2</td>
+</tr>
+<tr>
+<td>rpushx key value</td>
+<td>为已存在的列表添加值</td>
+<td>rpushx k1 v1 v2</td>
+</tr>
+</tbody></table>
+<h4 id="4、Set-集合"><a href="#4、Set-集合" class="headerlink" title="4、Set(集合)"></a>4、Set(集合)</h4><h4 id="5、zset-sorted-set-有序集合"><a href="#5、zset-sorted-set-有序集合" class="headerlink" title="5、zset(sorted set:有序集合)"></a>5、zset(sorted set:有序集合)</h4><h4 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h4><ul>
 <li>大小写敏感</li>
 <li>数据值前必须有空格作为分隔符</li>
 <li>使用缩进表示层级关系</li>
