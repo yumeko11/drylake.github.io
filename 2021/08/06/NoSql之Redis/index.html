@@ -294,7 +294,95 @@
 </li>
 </ol>
 <hr>
-<h3 id="三、Redis数据结构及常用语法"><a href="#三、Redis数据结构及常用语法" class="headerlink" title="三、Redis数据结构及常用语法"></a>三、Redis数据结构及常用语法</h3><h4 id="1、String-字符串"><a href="#1、String-字符串" class="headerlink" title="1、String(字符串)"></a>1、String(字符串)</h4><p>|命令|描述|实例|<br>|set key value|设置指定key的值|set k1 v1|<br>|get key|获取指定key的值|GET k1|<br>|getrange key start end|返回key中字符串值的子字符|getrange k1 0 -1|<br>|getset key value|将给定key的值设为value,并返回 key 的旧值|getset k1 v2|<br>|mget key1 key2..|获取所有(一个或多个)给定key的值|mget k1 k2 k3|<br>|setex key seconds value|将值value关联到key,并将key的过期时间设为seconds(以秒为单位)|setex k1 60 v1|<br>|psetex key milliseconds value|将值value关联到key,并将key的过期时间设为milliseconds(以毫秒为单位)|setex k1 1000 v1|<br>|setnx key value|只有在key不存在时设置key的值|setnx k2 v2|<br>|strlen key|返回key所储存的字符串值的长度|strlen k1|<br>|mset key1 value1 key2 value2…|同时设置一个或多个key-value对|mset k1 v1 k2 v2|<br>|msetnx key1 value1 key2 value2…|同时设置一个或多个key-value对,当且仅当所有给定key都不存在|msetnx k1 v1 k2 v2|<br>|incr key|将key中储存的数字值增一|incr k1|<br>|decr key|将key中储存的数字值减一|decr k1|<br>|incrby key increment|将key所储存的值加上给定的增量值(increment)|incrby key 10|<br>|decrby key decrement|将key所储存的值加上给定的减量值(decrement)|decrby key 10|<br>|append key value|如果key已经存在并且是一个字符串,append命令将指定的value追加到该key原来值(value)的末尾|append k1 hi|</p>
+<h3 id="三、Redis数据结构及常用语法"><a href="#三、Redis数据结构及常用语法" class="headerlink" title="三、Redis数据结构及常用语法"></a>三、Redis数据结构及常用语法</h3><h4 id="1、String-字符串"><a href="#1、String-字符串" class="headerlink" title="1、String(字符串)"></a>1、String(字符串)</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>set key value</td>
+<td>设置指定key的值</td>
+<td>set k1 v1</td>
+</tr>
+<tr>
+<td>get key</td>
+<td>获取指定key的值</td>
+<td>GET k1</td>
+</tr>
+<tr>
+<td>getrange key start end</td>
+<td>返回key中字符串值的子字符</td>
+<td>getrange k1 0 -1</td>
+</tr>
+<tr>
+<td>getset key value</td>
+<td>将给定key的值设为value,并返回 key 的旧值</td>
+<td>getset k1 v2</td>
+</tr>
+<tr>
+<td>mget key1 key2..</td>
+<td>获取所有(一个或多个)给定key的值</td>
+<td>mget k1 k2 k3</td>
+</tr>
+<tr>
+<td>setex key seconds value</td>
+<td>将值value关联到key,并将key的过期时间设为seconds(以秒为单位)</td>
+<td>setex k1 60 v1</td>
+</tr>
+<tr>
+<td>psetex key milliseconds value</td>
+<td>将值value关联到key,并将key的过期时间设为milliseconds(以毫秒为单位)</td>
+<td>setex k1 1000 v1</td>
+</tr>
+<tr>
+<td>setnx key value</td>
+<td>只有在key不存在时设置key的值</td>
+<td>setnx k2 v2</td>
+</tr>
+<tr>
+<td>strlen key</td>
+<td>返回key所储存的字符串值的长度</td>
+<td>strlen k1</td>
+</tr>
+<tr>
+<td>mset key1 value1 key2 value2…</td>
+<td>同时设置一个或多个key-value对</td>
+<td>mset k1 v1 k2 v2</td>
+</tr>
+<tr>
+<td>msetnx key1 value1 key2 value2…</td>
+<td>同时设置一个或多个key-value对,当且仅当所有给定key都不存在</td>
+<td>msetnx k1 v1 k2 v2</td>
+</tr>
+<tr>
+<td>incr key</td>
+<td>将key中储存的数字值增一</td>
+<td>incr k1</td>
+</tr>
+<tr>
+<td>decr key</td>
+<td>将key中储存的数字值减一</td>
+<td>decr k1</td>
+</tr>
+<tr>
+<td>incrby key increment</td>
+<td>将key所储存的值加上给定的增量值(increment)</td>
+<td>incrby key 10</td>
+</tr>
+<tr>
+<td>decrby key decrement</td>
+<td>将key所储存的值加上给定的减量值(decrement)</td>
+<td>decrby key 10</td>
+</tr>
+<tr>
+<td>append key value</td>
+<td>如果key已经存在并且是一个字符串,append命令将指定的value追加到该key原来值(value)的末尾</td>
+<td>append k1 hi</td>
+</tr>
+</tbody></table>
 <h4 id="1、Hash-哈希"><a href="#1、Hash-哈希" class="headerlink" title="1、Hash(哈希)"></a>1、Hash(哈希)</h4><h4 id="1、List-列表"><a href="#1、List-列表" class="headerlink" title="1、List(列表)"></a>1、List(列表)</h4><h4 id="1、Set-集合"><a href="#1、Set-集合" class="headerlink" title="1、Set(集合)"></a>1、Set(集合)</h4><h4 id="1、zset-sorted-set-有序集合"><a href="#1、zset-sorted-set-有序集合" class="headerlink" title="1、zset(sorted set:有序集合)"></a>1、zset(sorted set:有序集合)</h4><h4 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h4><ul>
 <li>大小写敏感</li>
 <li>数据值前必须有空格作为分隔符</li>
